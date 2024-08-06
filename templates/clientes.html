@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de clientes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro.css') }}">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="clientes">
+            <div class="titulo">
+                <b>Clientes Barbearia Busuline</b>
+            </div>
+            <div class="camposcima">
+
+
+                <div class="botaoadd">
+
+                    <input type="button" value="Novo Cliente" id="newclient">
+
+                </div>
+
+                <div class="conteudo">
+                    <div class="campos">
+                        <div class="id-cliente titulos">
+                            <b>Cliente Nº</b>
+                        </div>
+                        <div class="nome-cliente titulos">
+                            <b>Nome</b>
+                        </div>
+                        <div class="numero-cliente titulos">
+                            <b>Telefone</b>
+                        </div>
+                        <div class="data-ag-cliente titulos">
+                            <b>Data de agendamento</b>
+                        </div>
+                        <div class="sw-pacote-cliente titulos">
+                            <b>Tipo de atendimento</b>
+                        </div>
+                    </div>
+
+
+
+                    <div class="rolls">
+
+                        {% for cliente in clientes %}
+                        <div class="cliente cora">
+                            <div class="id-cliente dados">
+                                <b>{{ cliente.id }}</b>
+                            </div>
+                            <div class="nome-cliente dados">
+                                <b>{{ cliente.nome }}</b>
+                            </div>
+                            <div class="numero-cliente dados">
+                                <b>{{ cliente.telefone }}</b>
+                            </div>
+                            <div class="data-ag-cliente dados">
+                                <b>{{ cliente.data_atendimento }}</b>
+                            </div>
+                            <div class="sw-pacote-cliente dados">
+                                <b>{{ cliente.plano }}</b>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    </div>
+</body>
+<script src="{{ url_for('static', filename='javascript/script.js') }}"></script>
+<script src="{{ url_for('static', filename='javascript/cria-cliente.js') }}"></script>
+
+</html>
